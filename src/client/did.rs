@@ -13,7 +13,7 @@ use factom_did::client::service::{Service};
 use factom_did::client::updater::{DIDUpdater};
 use factom_did::client::validators::{validate_did};
 use factom_did::client::version_upgrader::{DIDVersionUpgrader};
-let __all__ = vec!["DID", "KeyType", "DIDKeyPurpose"];
+let all = vec!["DID", "KeyType", "DIDKeyPurpose"];
 struct DID {
 _id: ST0,
 management_keys: ST1,
@@ -45,7 +45,7 @@ impl DID {
     services: Service[], optional
         A list of services
     ";
-fn __init__<T0, T1, T2, T3, T4>(&self, did: T0, management_keys: T1, did_keys: T2, services: T3, spec_version: T4)  {
+fn init<T0, T1, T2, T3, T4>(&self, did: T0, management_keys: T1, did_keys: T2, services: T3, spec_version: T4)  {
 self._id = if did == None||!self.is_valid_did(did) { self._generate_did() } else { did };
 self.management_keys = if management_keys == None { vec![] } else { management_keys };
 self.did_keys = if did_keys == None { vec![] } else { did_keys };

@@ -1,21 +1,19 @@
 use std::collections::HashMap;
 use std::*;
-
 use factom::exceptions::FactomAPIError;
+
+// Calculates entry size in bytes.
+//
+// Parameters
+// ----------
+// ext_ids: bytes[] or str[]
+// content: bytes or str
+//
+// Returns
+// -------
+// int
+//     A total size of the entry in bytes.
 fn calculate_entry_size<T0, T1, RT>(ext_ids: T0, content: T1) -> RT {
-    "
-    Calculates entry size in bytes.
-
-    Parameters
-    ----------
-    ext_ids: bytes[] or str[]
-    content: bytes or str
-
-    Returns
-    -------
-    int
-        A total size of the entry in bytes.
-    ";
     let mut total_entry_size = 0;
     let fixed_header_size = 35;
     total_entry_size += (fixed_header_size + (2 * ext_ids.len()));
@@ -36,20 +34,19 @@ fn calculate_entry_size<T0, T1, RT>(ext_ids: T0, content: T1) -> RT {
     }
     return total_entry_size;
 }
+
+// 
+// Calculates chain id by hashing each ExtID, joining the hashes into a byte array and hashing the array.
+// Parameters
+// ----------
+// ext_ids: list
+//     A list of ExtIDs.
+// Returns
+// -------
+// str
+//     A chain id.
+// 
 fn calculate_chain_id<T0, RT>(ext_ids: T0) -> RT {
-    "
-    Calculates chain id by hashing each ExtID, joining the hashes into a byte array and hashing the array.
-
-    Parameters
-    ----------
-    ext_ids: list
-        A list of ExtIDs.
-
-    Returns
-    -------
-    str
-        A chain id.
-    ";
     let ext_ids_hash_bytes = bytearray(b"");
     for ext_id in ext_ids {
         if type_(ext_id) == bytes {

@@ -26,7 +26,7 @@ impl DIDVersionUpgrader {
     ValueError
         If the new version is not an upgrade on the current version
     ";
-fn __init__<T0, T1>(&self, did: T0, new_spec_version: T1)  {
+fn init<T0, T1>(&self, did: T0, new_spec_version: T1)  {
 if version::parse(did.spec_version) >= version::parse(new_spec_version) {
 raise!(ValueError("New version must be an upgrade on old version")); //unsupported
 }

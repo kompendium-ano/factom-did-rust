@@ -34,7 +34,7 @@ impl AbstractDIDKey {
     private_key: bytes or str, optional
         The private key.
     ";
-fn __init__<T0, T1, T2, T3, T4, T5>(&self, alias: T0, key_type: T1, controller: T2, priority_requirement: T3, public_key: T4, private_key: T5)  {
+fn init<T0, T1, T2, T3, T4, T5>(&self, alias: T0, key_type: T1, controller: T2, priority_requirement: T3, public_key: T4, private_key: T5)  {
 self._validate_key_input_params(alias, key_type, controller, priority_requirement);
 self.alias = alias;
 self.key_type = key_type;

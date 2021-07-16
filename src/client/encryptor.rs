@@ -5,7 +5,7 @@ use base64::{urlsafe_b64decode};
 use Crypto::Cipher::{AES};
 use Crypto::Hash::{SHA256, HMAC};
 use Crypto::Protocol::KDF::{PBKDF2};
-let __all__ = vec!["encrypt_keys", "decrypt_keys_from_str", "decrypt_keys_from_json_str", "decrypt_keys_from_json_file"];
+let all = vec!["encrypt_keys", "decrypt_keys_from_str", "decrypt_keys_from_json_str", "decrypt_keys_from_json_file"];
 fn encrypt_keys<T0, T1, T2, RT>(management_keys: T0, did_keys: T1, password: T2) -> RT {
 "
     Encrypts keys with a password.

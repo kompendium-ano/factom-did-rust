@@ -26,7 +26,7 @@ impl DIDUpdater {
     did: client.did.DID
         The DID object to update
     ";
-fn __init__<T0>(&self, did: T0)  {
+fn init<T0>(&self, did: T0)  {
 self.did = did;
 self.orig_management_keys = set(self.did.management_keys.copy());
 self.orig_did_keys = set(self.did.did_keys.copy());

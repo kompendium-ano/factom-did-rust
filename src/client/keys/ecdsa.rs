@@ -13,7 +13,7 @@ impl ECDSASecp256k1Key {
     verification, as well as key creation and derivation of a public key from a private key.
     ";
 const ON_CHAIN_PUB_KEY_NAME: _ = "publicKeyBase58";
-fn __init__<T0, T1>(&self, public_key: T0, private_key: T1)  {
+fn init<T0, T1>(&self, public_key: T0, private_key: T1)  {
 "
         Creates an ECDSASecp256k1Key object.
 

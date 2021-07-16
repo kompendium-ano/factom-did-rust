@@ -24,8 +24,8 @@ impl ManagementKey {
     public_key: str, optional
     private_key: str, optional
     ";
-fn __init__<T0, T1, T2, T3, T4, T5, T6>(&self, alias: T0, priority: T1, key_type: T2, controller: T3, priority_requirement: T4, public_key: T5, private_key: T6)  {
-super().__init__(alias, key_type, controller, priority_requirement, public_key, private_key);
+fn init<T0, T1, T2, T3, T4, T5, T6>(&self, alias: T0, priority: T1, key_type: T2, controller: T3, priority_requirement: T4, public_key: T5, private_key: T6)  {
+super().init(alias, key_type, controller, priority_requirement, public_key, private_key);
 if isinstance(priority, int) == false||priority < 0 {
 raise!(ValueError("Priority must be a non-negative integer.")); //unsupported
 }
