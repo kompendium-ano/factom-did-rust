@@ -2,7 +2,7 @@ use std::*;
 use std::collections::HashMap;
 
 
-let __all__ = vec!["KeyType", "EntryType", "DIDKeyPurpose", "Network"];
+let all = vec!["KeyType", "EntryType", "DIDKeyPurpose", "Network"];
 struct KeyType {
 
 }

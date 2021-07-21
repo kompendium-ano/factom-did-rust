@@ -3,7 +3,7 @@ use std::collections::HashMap;
 
 use factom_did::client::constants::{ENTRY_SCHEMA_V100};
 use factom_did::client::validators::{validate_alias, validate_priority_requirement, validate_service_endpoint};
-let __all__ = vec!["Service"];
+let all = vec!["Service"];
 struct Service {
 alias: ST0,
 service_type: ST1,
@@ -33,7 +33,7 @@ impl Service {
     custom_fields: dict, optional
         A dictionary containing custom fields (e.g "description": "My public social inbox").
     ";
-fn __init__<T0, T1, T2, T3, T4>(&self, alias: T0, service_type: T1, endpoint: T2, priority_requirement: T3, custom_fields: T4)  {
+fn init<T0, T1, T2, T3, T4>(&self, alias: T0, service_type: T1, endpoint: T2, priority_requirement: T3, custom_fields: T4)  {
 self._validate_service_input_params(alias, service_type, endpoint, priority_requirement);
 self.alias = alias;
 self.service_type = service_type;
