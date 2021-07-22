@@ -17,25 +17,22 @@ struct AbstractDIDKey {
     underlying: ST4,
 }
 
+//     Represents the common fields and functionality in a ManagementKey and a DidKey.
+//     Attributes
+//     ----------
+//     alias: str
+//         A human-readable nickname for the key.
+//     key_type: KeyType
+//         Identifies the type of signature that the key pair can be used to generate and verify.
+//     controller: str
+//         An entity that controls the key.
+//     priority_requirement: int
+//         A non-negative integer showing the minimum hierarchical level a key must have in order to remove this key.
+//     public_key: bytes or str, optional
+//         The public key.
+//     private_key: bytes or str, optional
+//         The private key.
 impl AbstractDIDKey {
-    // "
-    //     Represents the common fields and functionality in a ManagementKey and a DidKey.
-
-    //     Attributes
-    //     ----------
-    //     alias: str
-    //         A human-readable nickname for the key.
-    //     key_type: KeyType
-    //         Identifies the type of signature that the key pair can be used to generate and verify.
-    //     controller: str
-    //         An entity that controls the key.
-    //     priority_requirement: int
-    //         A non-negative integer showing the minimum hierarchical level a key must have in order to remove this key.
-    //     public_key: bytes or str, optional
-    //         The public key.
-    //     private_key: bytes or str, optional
-    //         The private key.
-    //     ";
     fn init<T0, T1, T2, T3, T4, T5>(
         &self,
         alias: T0,
@@ -45,7 +42,7 @@ impl AbstractDIDKey {
         public_key: T4,
         private_key: T5,
     ) {
-        self._validate_key_input_params(alias, key_type, controller, priority_requirement);
+        self.validate_key_input_params(alias, key_type, controller, priority_requirement);
         self.alias = alias;
         self.key_type = key_type;
         self.controller = controller;
@@ -66,8 +63,8 @@ impl AbstractDIDKey {
             }
         }
     }
-    fn __eq__<T0, RT>(&self, other: T0) -> RT {
-        if self.__class__ == other.__class__ {
+    fn equals<T0, RT>(&self, other: T0) -> RT {
+        if self.class == other.class {
             return (
                 self.alias,
                 self.key_type,
@@ -191,7 +188,7 @@ impl AbstractDIDKey {
         Generates new key pair for the key.
         ";
         assert!(self.signing_key != None);
-        self.underlying = self.underlying.__class__();
+        self.underlying = self.underlying.class();
     }
     fn full_id<T0, RT>(&self, did: T0) -> RT {
         "
@@ -208,7 +205,7 @@ impl AbstractDIDKey {
         ";
         return "{}#{}".format(did, self.alias);
     }
-    fn _validate_key_input_params<T0, T1, T2, T3>(
+    fn validate_key_input_params<T0, T1, T2, T3>(
         alias: T0,
         key_type: T1,
         controller: T2,

@@ -43,9 +43,9 @@ impl ECDSASecp256k1Key {
         }
         self._derive_signing_and_verifying_key(public_key, private_key);
     }
-    fn __repr__<RT>(&self) -> RT {
+    fn represent<RT>(&self) -> RT {
         return "<{}.{}(public_key={}, private_key=({}))>".format(
-            self.__module__,
+            self.module,
             type_(self).__name__,
             base58
                 .b58encode(self.verifying_key.to_string())

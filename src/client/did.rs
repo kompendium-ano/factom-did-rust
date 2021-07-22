@@ -64,8 +64,8 @@ for service in self.services {
 self._check_alias_is_unique_and_add_to_used(self.used_service_aliases, service.alias);
 }
 }
-fn __repr__<RT>(&self) -> RT {
-return "<{}.{} (management_keys={}, did_keys={}, services={})>".format(self.__module__, type_(self).__name__, self.management_keys.len(), self.did_keys.len(), self.services.len());
+fn represent<RT>(&self) -> RT {
+return "<{}.{} (management_keys={}, did_keys={}, services={})>".format(self.module, type_(self).__name__, self.management_keys.len(), self.did_keys.len(), self.services.len());
 }
 fn id<RT>(&self) -> RT {
 if self.network == Network::Unspecified {

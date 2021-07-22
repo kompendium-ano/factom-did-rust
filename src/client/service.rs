@@ -41,17 +41,17 @@ self.endpoint = endpoint;
 self.priority_requirement = priority_requirement;
 self.custom_fields = custom_fields;
 }
-fn __eq__<T0, RT>(&self, other: T0) -> RT {
-if self.__class__ == other.__class__ {
+fn equals<T0, RT>(&self, other: T0) -> RT {
+if self.class == other.class {
 return (self.alias, self.service_type, self.endpoint, self.priority_requirement, self.custom_fields) == (other.alias, other.service_type, other.endpoint, other.priority_requirement, other.custom_fields);
 }
 return NotImplemented;
 }
-fn __hash__<RT>(&self) -> RT {
+fn hash<RT>(&self) -> RT {
 return hash((self.alias, self.service_type, self.endpoint, self.priority_requirement, if self.custom_fields { json.dumps(self.custom_fields) } else { None }));
 }
-fn __repr__<RT>(&self) -> RT {
-return "<{}.{}(alias={}, service_type={}, endpoint={}, priority_requirement={}, custom_fields={})>".format(self.__module__, type_(self).__name__, self.alias, self.service_type, self.endpoint, self.priority_requirement, self.custom_fields);
+fn represent<RT>(&self) -> RT {
+return "<{}.{}(alias={}, service_type={}, endpoint={}, priority_requirement={}, custom_fields={})>".format(self.module, type_(self).__name__, self.alias, self.service_type, self.endpoint, self.priority_requirement, self.custom_fields);
 }
 fn to_entry_dict<T0, T1, RT>(&self, did: T0, version: T1) -> RT {
 "

@@ -46,8 +46,8 @@ raise!(ValueError("private_key must be either bytes or string")); //unsupported
 }
 self._derive_signing_and_verifying_key(public_key, private_key);
 }
-fn __repr__<RT>(&self) -> RT {
-return "<{}.{}(public_key={}, private_key=({}))>".format(self.__module__, type_(self).__name__, self._minify_public_key(), if self.signing_key != None { "hidden" } else { "not set" });
+fn represent<RT>(&self) -> RT {
+return "<{}.{}(public_key={}, private_key=({}))>".format(self.module, type_(self).__name__, self._minify_public_key(), if self.signing_key != None { "hidden" } else { "not set" });
 }
 fn public_key<RT>(&self) -> RT {
 return self.verifying_key.export_key();

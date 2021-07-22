@@ -40,17 +40,17 @@ raise!(ValueError("Purpose must contain only valid DIDKeyPurpose values.")); //u
 }
 self.purpose = purpose_l;
 }
-fn __eq__<T0, RT>(&self, other: T0) -> RT {
-if self.__class__ == other.__class__ {
-return super().__eq__(other)&&self.purpose == other.purpose;
+fn equals<T0, RT>(&self, other: T0) -> RT {
+if self.class == other.class {
+return super().equals(other)&&self.purpose == other.purpose;
 }
 return NotImplemented;
 }
-fn __hash__<RT>(&self) -> RT {
+fn hash<RT>(&self) -> RT {
 return hash((self.alias, "".join(self.purpose.iter().map(|x| x.value)), self.key_type, self.controller, self.priority_requirement, self.public_key, self.private_key));
 }
-fn __repr__<RT>(&self) -> RT {
-return "<{}.{}(alias={}, purpose={}, key_type={}, controller={}, priority_requirement={})>".format(self.__module__, type_(self).__name__, self.alias, self.purpose, self.underlying, self.controller, self.priority_requirement);
+fn represent<RT>(&self) -> RT {
+return "<{}.{}(alias={}, purpose={}, key_type={}, controller={}, priority_requirement={})>".format(self.module, type_(self).__name__, self.alias, self.purpose, self.underlying, self.controller, self.priority_requirement);
 }
 fn to_entry_dict<T0, T1, RT>(&self, did: T0, version: T1) -> RT {
 if version == ENTRY_SCHEMA_V100 {
