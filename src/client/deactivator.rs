@@ -58,26 +58,26 @@ impl DIDDeactivator {
         ec_address: T2,
         verbose: T3,
     ) {
-        "
-        Attempts to record the DIDDeactivation entry on-chain.
+        // "
+        // Attempts to record the DIDDeactivation entry on-chain.
 
-        Parameters
-        ----------
-        factomd: obj
-            Factomd instance, instantiated from the Python factom-api package.
-        walletd: obj
-            Factom walletd instance, instantiated from the Python factom-api package.
-        ec_address: str
-            EC address used to pay for the chain & entry creation.
-        verbose: bool, optional
-            If true, display the contents of the entry that will be recorded
-            on-chain.
+        // Parameters
+        // ----------
+        // factomd: obj
+        //     Factomd instance, instantiated from the Python factom-api package.
+        // walletd: obj
+        //     Factom walletd instance, instantiated from the Python factom-api package.
+        // ec_address: str
+        //     EC address used to pay for the chain & entry creation.
+        // verbose: bool, optional
+        //     If true, display the contents of the entry that will be recorded
+        //     on-chain.
 
-        Raises
-        ------
-        RuntimeError
-            If the entry cannot be recorded
-        ";
+        // Raises
+        // ------
+        // RuntimeError
+        //     If the entry cannot be recorded
+        // ";
         record_entry(
             self.did.get_chain(),
             self.export_entry_data(),

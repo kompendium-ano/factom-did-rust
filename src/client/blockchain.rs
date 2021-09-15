@@ -1,6 +1,6 @@
+use factom::exceptions::FactomAPIError;
 use std::collections::HashMap;
 use std::*;
-use factom::exceptions::FactomAPIError;
 
 // Calculates entry size in bytes.
 //
@@ -35,7 +35,7 @@ fn calculate_entry_size<T0, T1, RT>(ext_ids: T0, content: T1) -> RT {
     return total_entry_size;
 }
 
-// 
+//
 // Calculates chain id by hashing each ExtID, joining the hashes into a byte array and hashing the array.
 // Parameters
 // ----------
@@ -45,7 +45,7 @@ fn calculate_entry_size<T0, T1, RT>(ext_ids: T0, content: T1) -> RT {
 // -------
 // str
 //     A chain id.
-// 
+//
 fn calculate_chain_id<T0, RT>(ext_ids: T0) -> RT {
     let ext_ids_hash_bytes = bytearray(b"");
     for ext_id in ext_ids {

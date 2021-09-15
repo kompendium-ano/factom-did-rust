@@ -9,21 +9,21 @@ priority: ST0,
 }
 
 impl ManagementKey {
-"
-    A key used to sign updates for an existing DID.
+// "
+//     A key used to sign updates for an existing DID.
 
-    Attributes
-    ----------
-    alias: str
-    priority: int
-        A non-negative integer showing the hierarchical level of the key. Keys with lower priority override keys with
-        higher priority.
-    key_type: KeyType
-    controller: str
-    priority_requirement: int, optional
-    public_key: str, optional
-    private_key: str, optional
-    ";
+//     Attributes
+//     ----------
+//     alias: str
+//     priority: int
+//         A non-negative integer showing the hierarchical level of the key. Keys with lower priority override keys with
+//         higher priority.
+//     key_type: KeyType
+//     controller: str
+//     priority_requirement: int, optional
+//     public_key: str, optional
+//     private_key: str, optional
+//     ";
 fn init<T0, T1, T2, T3, T4, T5, T6>(&self, alias: T0, priority: T1, key_type: T2, controller: T3, priority_requirement: T4, public_key: T5, private_key: T6)  {
 super().init(alias, key_type, controller, priority_requirement, public_key, private_key);
 if isinstance(priority, int) == false||priority < 0 {
@@ -31,17 +31,17 @@ raise!(ValueError("Priority must be a non-negative integer.")); //unsupported
 }
 self.priority = priority;
 }
-fn __eq__<T0, RT>(&self, other: T0) -> RT {
-if self.__class__ == other.__class__ {
-return super().__eq__(other)&&self.priority == other.priority;
+fn equals<T0, RT>(&self, other: T0) -> RT {
+if self.class == other.class {
+return super().equals(other)&&self.priority == other.priority;
 }
 return NotImplemented;
 }
-fn __hash__<RT>(&self) -> RT {
+fn hash<RT>(&self) -> RT {
 return hash((self.alias, self.priority, self.key_type, self.controller, self.priority_requirement, self.public_key, self.private_key));
 }
-fn __repr__<RT>(&self) -> RT {
-return "<{}.{}(alias={}, priority={}, key_type={}, controller={}, priority_requirement={})>".format(self.__module__, type_(self).__name__, self.alias, self.priority, self.underlying, self.controller, self.priority_requirement);
+fn represent<RT>(&self) -> RT {
+return "<{}.{}(alias={}, priority={}, key_type={}, controller={}, priority_requirement={})>".format(self.module, type_(self).__name__, self.alias, self.priority, self.underlying, self.controller, self.priority_requirement);
 }
 fn to_entry_dict<T0, T1, RT>(&self, did: T0, version: T1) -> RT {
 if version == ENTRY_SCHEMA_V100 {
